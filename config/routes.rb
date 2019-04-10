@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   patch 'edit/:user_id/:activity_id', to: 'user_activities#update', as: 'update_activity'
 
   post 'new_activity/:user_id', to: 'activities#create', as: 'new_activity'
+  get 'edit_new_user_activity/:user_id/:activity_id', to: 'activities#edit', as: 'edit_new_user_activity'
+  patch 'update_new_activity/:activity_id', to: 'activities#update', as: 'update_new_activity'
   
 
   devise_for :users, controllers: {

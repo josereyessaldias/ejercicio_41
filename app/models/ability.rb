@@ -11,6 +11,7 @@ class Ability
     elsif user.player?
         can [:index, :user_page], :all
         can [:edit, :create, :destroy, :update], UserActivity, user_id: user.id
+        can [:edit, :create, :update], Activity, user_id: user.id
     
         
 

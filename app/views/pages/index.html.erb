@@ -5,7 +5,6 @@
 	<%= form_with model: @activity, url: asigne_activity_path(current_user), method: :post, local: true do |f| %>
 
 		<%= f.label :activity %>
-		
 		<%= f.collection_select :activity_id, @user_activities, :id, :name, :prompt => true %>
 
 		<%= f.submit "Enviar" %>

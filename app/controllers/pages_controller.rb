@@ -3,7 +3,9 @@ class PagesController < ApplicationController
   
   def index
     @users = User.all
-    @user_activities = Activity.where.not(id: current_user.activities.pluck(:id))
+    if user_signed_in?
+      @user_activities = Activity.where.not(id: current_user.activities.pluck(:id))
+    end
   end  
 
   def user_page
