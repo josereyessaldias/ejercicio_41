@@ -20,7 +20,7 @@ class ActivitiesController < ApplicationController
 		@activity = Activity.where(id: params[:activity_id]).first
 		@activity.update(author: params[:activity][:author])
 		@activity.update(category_id: params[:activity][:category_id])
-    	redirect_to root_path
+    	redirect_to user_page_path(current_user)
 	end
 	
 end
