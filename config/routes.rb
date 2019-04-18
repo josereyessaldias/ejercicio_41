@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'promote_activities/index'
   get 'pages/index'
   get 'user_page/:user_id', to: 'pages#user_page', as: 'user_page'
 
@@ -11,6 +12,14 @@ Rails.application.routes.draw do
   get 'edit_new_user_activity/:user_id/:activity_id', to: 'activities#edit', as: 'edit_new_user_activity'
   patch 'update_new_activity/:activity_id', to: 'activities#update', as: 'update_new_activity'
   
+  get 'promote_activities/:user_id', to: 'promote_activities#index', as: 'promote_activities'
+
+  resources :billings, only: [:index] do
+    collection do
+      get 'pre_pay'
+      get 'execute'
+    end
+  end
 
   devise_for :users, controllers: {
         registrations: 'user/registrations'

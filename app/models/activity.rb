@@ -3,4 +3,5 @@ class Activity < ApplicationRecord
 	has_many :users, through: :user_activity
 
 	belongs_to :category, optional: true
+	has_many :promote_activity
 end

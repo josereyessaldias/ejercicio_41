@@ -1,0 +1,17 @@
+<h3>Promociones de <%= @user.name %></h3><br>
+
+<table class="table">
+	<thead>
+		<th>Producto</th>
+		<th>Precio</th>
+	</thead>
+		<tbody>
+		<% @promotes.each do |promote| %>
+			<tr>
+				<td><%= promote.activity.name %></td>
+				<td><%= promote.amount %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<td><%= link_to 'Promocionar Todo', pre_pay_billings_path, :class => 'btn btn-sm btn-success float-right' %>

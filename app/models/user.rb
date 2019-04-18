@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :user_activity
   has_many :activities, through: :user_activity
+  has_many :promote_activity
+  has_many :billings
 end

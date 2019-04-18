@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_001606) do
+ActiveRecord::Schema.define(version: 2019_04_17_005751) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -22,12 +22,36 @@ ActiveRecord::Schema.define(version: 2019_04_05_001606) do
     t.index ["category_id"], name: "index_activities_on_category_id"
   end
 
+  create_table "billings", force: :cascade do |t|
+    t.string "code"
+    t.string "payment_method"
+    t.decimal "amount", precision: 12, scale: 2
+    t.string "currency"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_billings_on_user_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "past"
     t.string "sustantivo"
+  end
+
+  create_table "promote_activities", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "activity_id"
+    t.decimal "amount", precision: 12, scale: 2
+    t.boolean "payed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "billing_id"
+    t.index ["activity_id"], name: "index_promote_activities_on_activity_id"
+    t.index ["billing_id"], name: "index_promote_activities_on_billing_id"
+    t.index ["user_id"], name: "index_promote_activities_on_user_id"
   end
 
   create_table "user_activities", force: :cascade do |t|
