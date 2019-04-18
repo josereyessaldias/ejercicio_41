@@ -4,12 +4,20 @@
 	<thead>
 		<th>Producto</th>
 		<th>Precio</th>
+		<th>¿Pagada?</th>
 	</thead>
 		<tbody>
 		<% @promotes.each do |promote| %>
 			<tr>
 				<td><%= promote.activity.name %></td>
 				<td><%= promote.amount %></td>
+				<td>
+					<% if promote.payed? %>
+						Pagado
+					<% else %>
+						Pendiente de pago
+					<% end %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>

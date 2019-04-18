@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   patch 'update_new_activity/:activity_id', to: 'activities#update', as: 'update_new_activity'
   
   get 'promote_activities/:user_id', to: 'promote_activities#index', as: 'promote_activities'
+  get 'new_promote', to: 'promote_activities#new', as: 'new_promote'
+  post 'create_promote/:user_id', to: 'promote_activities#create', as: 'create_promote'
 
   resources :billings, only: [:index] do
     collection do
