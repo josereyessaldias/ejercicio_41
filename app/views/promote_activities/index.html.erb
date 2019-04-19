@@ -5,6 +5,7 @@
 		<th>Producto</th>
 		<th>Precio</th>
 		<th>¿Pagada?</th>
+		<th></th>
 	</thead>
 		<tbody>
 		<% @promotes.each do |promote| %>
@@ -17,6 +18,12 @@
 					<% else %>
 						Pendiente de pago
 					<% end %>
+				</td>
+				<td>
+					<% if promote.payed? %>
+					<% else %>
+						<%= link_to 'Borrar promoción', destroy_promote_path(promote.id), method: :delete %>
+					<% end %>	
 				</td>
 			</tr>
 		<% end %>

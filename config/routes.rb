@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'promote_activities/:user_id', to: 'promote_activities#index', as: 'promote_activities'
   get 'new_promote', to: 'promote_activities#new', as: 'new_promote'
   post 'create_promote/:user_id', to: 'promote_activities#create', as: 'create_promote'
+  delete 'promote/:id', to: 'promote_activities#destroy', as: 'destroy_promote'
 
   resources :billings, only: [:index] do
     collection do
