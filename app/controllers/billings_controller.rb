@@ -23,8 +23,8 @@ class BillingsController < ApplicationController
 		  :payer =>  {
 		    :payment_method =>  "paypal" },
 		  :redirect_urls => {
-		    :return_url => "https://#{request.host_with_port}/billings/execute",
-		    :cancel_url => "https://#{request.host_with_port}/" },
+		    :return_url => "#{Rails.application.routes.default_url_options[:protocol]}://#{request.host_with_port}/billings/execute",
+		    :cancel_url => "#{Rails.application.routes.default_url_options[:protocol]}://#{request.host_with_port}/" },
 		  :transactions =>  [{
 		    :item_list => {
 		      :items => items
