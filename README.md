@@ -1,8 +1,8 @@
 # README
 
-Articulé los modelos de Usuarios, Actividades, Usuarios-Actividades y Categorías. Además, implementé cancancan con dos roles de usuarios: player y admin.
-Los tests nuevamente no los pude implementar. No sé si finalmente pueda hacerlo.
-Adjunto, además, el modelo físico del proyecto final.
+Habilité Paypal, pagos. Me falta que la publicidad esté operatica y automatizada.
+
+Enlace Heroku: https://ejercicio41.herokuapp.com
 
 
 This README would normally document whatever steps are necessary to get the
